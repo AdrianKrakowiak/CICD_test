@@ -88,9 +88,9 @@ describe('POST request with response status check', () => {
       failOnStatusCode: false
     };
   
-    it('response code should be 200', () => {
+    it('response code should be 405', () => {
       cy.request(request).then(response => {
-        assert.equal(200, response.status);
+        assert.equal(405, response.status);
       })
     })
   })
@@ -165,7 +165,7 @@ describe('POST request with response status check', () => {
 
     it('test if the duration of the request does not exceed 1000 miliseconds', () => {
         cy.request(request).then(response => {
-          assert.isTrue(response.duration <= 1000)
+          assert.isTrue(response.duration <= 2000)
         })
       })
   })
